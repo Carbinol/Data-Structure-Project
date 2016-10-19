@@ -1,5 +1,5 @@
-#include<stdio.h>    //包含malloc函数
-#include<stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>    //包含malloc函数
 struct node    //定义名为node的结构体
 {
     char elem_c;    //存储字符类型数据
@@ -32,13 +32,13 @@ struct node *read(struct node *n_node)    //形参为node类型的指针
         scanf("%c",&p1->elem_c);    //读入字符
         p1->type=2;    //数据类型=2
     }
-    while(p1->type!=0)
+    while(p1->type!=0)    //当数据类型不为0时
     {
-        if(n_node==NULL)
-            n_node=p1;
+        if(n_node==NULL)    //如果当前节点为空
+            n_node=p1;    //将其设为头结点
         else
-            p2->next=p1;
-        p2=p1;
+            p2->next=p1;    //否则将当前节点接到表尾
+        p2=p1;    //令p2指向刚刚录入的节点
         p1=(struct node*)malloc(sozeof(struct node));
         if(scanf("lf",&p1->elem_n)==0)
         {
